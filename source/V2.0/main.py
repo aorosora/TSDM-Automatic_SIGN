@@ -400,9 +400,9 @@ class App:
 
 
 class SysTrayIcon(wx.adv.TaskBarIcon):
-    ID_ABOUT = wx.NewId()
-    ID_EXIT = wx.NewId()
-    ID_SHOW_APP = wx.NewId()
+    ID_ABOUT = wx.NewIdRef(count=1)
+    ID_EXIT = wx.NewIdRef(count=1)
+    ID_SHOW_APP = wx.NewIdRef(count=1)
     TITLE = 'TSDM自动签到'
 
     def __init__(self):
