@@ -140,7 +140,7 @@ class WebService:
         self.data['tsdm_verify'] = code#获取Entry值
         self.data['answer'] = ''
         self.data['questionid'] = '0'
-        self.data['referer'] = 'http://www.tsdm.me/forum.php'
+        self.data['referer'] = 'https://www.tsdm39.net/forum.php'
         self.post_data = urlp.urlencode(self.data).encode(self.code)
     
     def add_cookie(self, name, value):
@@ -150,7 +150,7 @@ class WebService:
             value=value,
             port=None,
             port_specified=False,
-            domain=".tsdm.me",
+            domain=".tsdm39.net",
             domain_specified=True,
             domain_initial_dot=False,
             path="/",
@@ -175,12 +175,12 @@ class WebService:
             self.add_cookie('pgv_info', tgt.group(2))
             si = re.search(r'ssi=(.+)', tgt.group(2)).group(1)
             r3 = int(r.random() * 450) + 350
-            url = 'http://pingtcss.qq.com/pingd?dm=www.tsdm.me&url=/forum.php&arg=-&rdm=-&rurl=-&adt=-&rarg=-&pvi=' + tgt.group(1) +'&si=' + si + '&ui=0&ty=1&rt=forum&pn=1&qq=000&r2=8480046&scr=1366x768&scl=24-bit&lg=zh-cn&jv=0&pf=Win32&tz=-8&fl=26.0%20r0&ct=-&ext=bc=0;adid=&r3=' + str(r3)
+            url = 'http://pingtcss.qq.com/pingd?dm=www.tsdm39.net&url=/forum.php&arg=-&rdm=-&rurl=-&adt=-&rarg=-&pvi=' + tgt.group(1) +'&si=' + si + '&ui=0&ty=1&rt=forum&pn=1&qq=000&r2=8480046&scr=1366x768&scl=24-bit&lg=zh-cn&jv=0&pf=Win32&tz=-8&fl=26.0%20r0&ct=-&ext=bc=0;adid=&r3=' + str(r3)
             self.get_response(url)
         else:
             pgv_ssid, pgv_pvi = set_pgvs()
             r3 = int(r.random() * 450) + 350
-            url = 'http://pingtcss.qq.com/pingd?dm=www.tsdm.me&url=/forum.php&arg=-&rdm=-&rurl=-&adt=-&rarg=-&pvi=' + str(pgv_pvi) +'&si=' + str(pgv_ssid) + '&ui=0&ty=1&rt=forum&pn=1&qq=000&r2=8480046&scr=1366x768&scl=24-bit&lg=zh-cn&jv=0&pf=Win32&tz=-8&fl=26.0%20r0&ct=-&ext=bc=0;adid=&r3=' + str(r3)
+            url = 'http://pingtcss.qq.com/pingd?dm=www.tsdm39.net&url=/forum.php&arg=-&rdm=-&rurl=-&adt=-&rarg=-&pvi=' + str(pgv_pvi) +'&si=' + str(pgv_ssid) + '&ui=0&ty=1&rt=forum&pn=1&qq=000&r2=8480046&scr=1366x768&scl=24-bit&lg=zh-cn&jv=0&pf=Win32&tz=-8&fl=26.0%20r0&ct=-&ext=bc=0;adid=&r3=' + str(r3)
             self.get_response(url)
             pgv_str = 'pgv_pvi=' + str(pgv_pvi) +'; pgv_info=ssi=' + str(pgv_ssid)
             with open('pgv.txt', 'wt') as f:
